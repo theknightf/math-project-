@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حل المصفوفات بطريقة جاوس | Gauss Elimination Solver</title>
+    <meta name="description" content="حل أنظمة المعادلات الخطية بطريقة جاوس مع شرح خطوة بخطوة باللهجة المصرية">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated background particles -->
+    <div class="particles" id="particles"></div>
+
+    <div class="app-wrapper">
+        <div class="container glass-card">
+            <header id="appHeader">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 64 64" width="48" height="48" fill="none">
+                        <rect x="8" y="8" width="14" height="14" rx="3" fill="#818cf8" opacity="0.8"/>
+                        <rect x="25" y="8" width="14" height="14" rx="3" fill="#60a5fa" opacity="0.6"/>
+                        <rect x="42" y="8" width="14" height="14" rx="3" fill="#34d399" opacity="0.4"/>
+                        <rect x="8" y="25" width="14" height="14" rx="3" fill="#60a5fa" opacity="0.6"/>
+                        <rect x="25" y="25" width="14" height="14" rx="3" fill="#818cf8" opacity="0.8"/>
+                        <rect x="42" y="25" width="14" height="14" rx="3" fill="#60a5fa" opacity="0.6"/>
+                        <rect x="8" y="42" width="14" height="14" rx="3" fill="#34d399" opacity="0.4"/>
+                        <rect x="25" y="42" width="14" height="14" rx="3" fill="#60a5fa" opacity="0.6"/>
+                        <rect x="42" y="42" width="14" height="14" rx="3" fill="#818cf8" opacity="0.8"/>
+                    </svg>
+                </div>
+                <h1>حل المصفوفات بطريقة جاوس</h1>
+                <p class="subtitle">Gaussian Elimination Solver — شرح خطوة بخطوة باللهجة المصرية 🇪🇬</p>
+            </header>
+
+            <!-- Step 1: Size Selection -->
+            <section class="config-section" id="configSection">
+                <div class="step-badge">الخطوة الأولى</div>
+                <h2 class="section-title">اختار حجم المصفوفة</h2>
+                <p class="section-desc">يعني عدد المعادلات والمجاهيل اللي عندك</p>
+                <div class="size-picker">
+                    <button class="size-btn" data-size="2">2×2</button>
+                    <button class="size-btn active" data-size="3">3×3</button>
+                    <button class="size-btn" data-size="4">4×4</button>
+                    <button class="size-btn" data-size="5">5×5</button>
+                    <div class="custom-size">
+                        <label for="matrixSize">أو اختار حجم تاني:</label>
+                        <input type="number" id="matrixSize" min="2" max="10" value="3">
+                    </div>
+                </div>
+                <button id="generateBtn" class="btn btn-primary btn-glow">
+                    <span>🚀</span> يلا نبدأ — Generate Matrix
+                </button>
+            </section>
+
+            <!-- Step 2: Matrix Input -->
+            <section id="matrixSection" class="matrix-section hidden">
+                <div class="step-badge">الخطوة التانية</div>
+                <h2 class="section-title">دخّل الأرقام في المصفوفة</h2>
+                <p class="section-desc">المعاملات على الشمال والثوابت على اليمين (بعد الخط)</p>
+                <div class="matrix-wrapper">
+                    <div class="bracket bracket-left">[</div>
+                    <div id="matrixGrid" class="matrix-grid"></div>
+                    <div class="bracket bracket-right">]</div>
+                </div>
+                <div class="matrix-actions">
+                    <button id="fillExampleBtn" class="btn btn-secondary">📝 مثال جاهز</button>
+                    <button id="clearBtn" class="btn btn-secondary">🗑️ مسح الكل</button>
+                    <button id="solveBtn" class="btn btn-success btn-glow">
+                        <span>✨</span> حل المصفوفة — Solve
+                    </button>
+                </div>
+            </section>
+
+            <!-- Step 3: Results -->
+            <section id="resultsSection" class="results-section hidden">
+                <div class="step-badge step-badge-success">النتيجة 🎉</div>
+                <h2 class="section-title">الحل النهائي</h2>
+                <div id="resultsContainer" class="results-container"></div>
+
+                <div class="steps-header">
+                    <h3>📖 الشرح خطوة بخطوة باللهجة المصرية</h3>
+                    <button id="toggleSteps" class="btn btn-ghost">إخفاء / إظهار</button>
+                </div>
+                <div id="stepsContainer" class="steps-container"></div>
+            </section>
+        </div>
+
+        <footer class="app-footer">
+            <p>Made with ❤️ — "اللي يتلسع من الشوربة ينفخ في الزبادي" 🇪🇬</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
